@@ -137,11 +137,10 @@ if __name__ == '__main__':
 	raise
 	fail("Error while processing data", exitcode=os.EX_DATAERR)
 
-    for _ in xrange(100000):
-	try:
-	    path = network.route(start, finish)
-	except RouteNotFound as e:
-	    fail(e)
-	# print out the path 
-	print(*path, sep=',')
+    try:
+	path = network.route(start, finish)
+    except RouteNotFound as e:
+	fail(e)
+    # print out the path 
+    print(*path, sep=',')
     
